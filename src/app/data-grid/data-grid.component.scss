@@ -1,0 +1,15 @@
+.data-table-block {
+    padding: 10px 20px;
+    background-color: #f7f7f7;
+}
+::ng-deep li.p-highlight a {
+    background: #344453 !important;
+    border-color: #344453 !important;
+    color: #fff !important;
+}
+::ng-deep .p-tabview-nav-link {
+    padding: 16px 40px !important;
+}
+::ng-deep .data-table-block .p-tabview-panels {
+    padding: 0 !important;
+}
