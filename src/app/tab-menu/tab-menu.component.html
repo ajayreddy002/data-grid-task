@@ -67,7 +67,7 @@
                     </div>
                     <div class="search-block">
                         <i class="pi pi-search"></i>
-                        <input type="text" name="search" id="" class="form-control" placeholder="Search...">
+                        <input type="text" name="search" id="" (change)="getCustomerByCompanyName($event)" class="form-control" placeholder="Search...">
                     </div>
                     <div class="create-btn">
                         <button routerLink="/new-customer">

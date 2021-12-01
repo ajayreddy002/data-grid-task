@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { BaseAPIServices } from 'src/app/_services/base-api-services';
 import { IAllCustomerModel, IAllHeaderColums } from '../models/table-model';
 
 @Component({
@@ -17,7 +18,8 @@ export class TabMenuComponent implements OnInit {
   allCustomerColumns: IAllHeaderColums[] = [];
   allCustomerData: IAllCustomerModel[] = [];
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private baseAPIServices: BaseAPIServices
   ) { }
 
   ngOnInit(): void {
@@ -46,17 +48,30 @@ export class TabMenuComponent implements OnInit {
       { header: 'phone', field: 'phone' },
       { header: 'accountManager', field: 'accountManager' },
     ];
-    this.getData();
+    this.getAllCustomersData();
   }
-  getData() {
-    this.httpClient.get('/assets/data/ATT.json')
+  getAllCustomersData() {
+    this.baseAPIServices.getMethod('customer/all-customers')
       .subscribe(
         (data: any) => {
+          console.log(data);
           this.allCustomerData = data;
-        }, err => {
-          console.log(err)
+        }, (err: any) => {
+          console.log(err);
         }
       )
+  }
+  getCustomerByCompanyName(event: any) {
+    if (event && event.target.value.length > 3) {
+      this.baseAPIServices.getDataByCompanyName(event.target.value)
+        .subscribe(
+          (data: any) => {
+            console.log(data);
+          }, err => {
+            console.log(err);
+          }
+        )
+    }
   }
 
 }

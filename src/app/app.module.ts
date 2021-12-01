@@ -15,6 +15,7 @@ import { TabMenuComponent } from './tab-menu/tab-menu.component';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import {DropdownModule} from 'primeng/dropdown';
+import { BaseAPIServices } from 'src/app/_services/base-api-services';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,9 @@ import {DropdownModule} from 'primeng/dropdown';
     InputSwitchModule,
     DropdownModule
   ],
-  providers: [],
+  providers: [
+    BaseAPIServices
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
