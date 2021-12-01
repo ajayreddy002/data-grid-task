@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { IAllCustomerModel, IAllHeaderColums } from '../models/table-model';
 @Component({
   selector: 'app-data-grid',
   templateUrl: './data-grid.component.html',
@@ -6,6 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class DataGridComponent implements OnInit {
   @Input() products:any[] = [];
+  @Input()columns: IAllHeaderColums[] = [];
+  @Input()allCustomerData: IAllCustomerModel[] = [];
   constructor(
   ) { }
 

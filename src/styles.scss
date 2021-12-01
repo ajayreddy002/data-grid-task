@@ -1,4 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+@import url("~bootstrap/dist/css/bootstrap.min.css");
+@import url("~bootstrap-icons/font/bootstrap-icons.css");
+select:focus {
+    box-shadow: none;
+    outline: none;
+}
+input:focus,
+.form-control:focus {
+    box-shadow: none;
+    outline: none;
+}
+button {
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    border: none;
+    outline: none;
+    &:focus {
+        box-shadow: none;
+        outline: none;
+    }
+}
+body{
+    background-color: #ECF0F5;
+}
+
+.new-customer-data {
+    .p-dropdown {
+        width: 300px;
+        border-radius: 5px !important;
+    }
+}

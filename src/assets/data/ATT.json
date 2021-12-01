@@ -1,0 +1,119 @@
+[
+    {
+        "customerId": "361e85dc-14db-4e77-9e52-cabd5da2fa3b",
+        "companyName": "Ardor Travel Technologies",
+        "regdCompanyName": "Ardor Travel Technologies",
+        "companyOwner": "Admin Ardor Travel Technologies",
+        "parentId": null,
+        "accountManager": null,
+        "serviceManager": null,
+        "contacts": [],
+        "email": "admin@asdfasd.com",
+        "phone": "6548528522",
+        "formatPhone": "6548528522",
+        "address": "2118 Rafe Lane, Tremont, MS- 38876",
+        "taxId": null,
+        "travelLicense": null,
+        "arc": null,
+        "branchCode": null,
+        "branchName": null,
+        "fopCodes": null,
+        "clientCode": "TP",
+        "consolidatorId": 9160,
+        "gds": null,
+        "markets": "Asia",
+        "creditLimit": null,
+        "size": null,
+        "pos": null,
+        "businessFocus": null,
+        "currency": "USD",
+        "dkNumber": "C101026",
+        "subscription": null,
+        "platform": "Falcon",
+        "distribution": "TripPlanet",
+        "customerType": "B2C",
+        "createdDate": "2021-10-14T08:15:58.200Z",
+        "lastModified": "2021-10-14T08:15:58.200Z",
+        "pccConfig": {
+            "sabre": null,
+            "amadeus": null,
+            "worldspan": null,
+            "apollo": null,
+            "galileo": null
+        },
+        "emailConfig": {
+            "documentDelivery": null,
+            "scheduleChanges": null,
+            "statements": null,
+            "refunds": null,
+            "debitMemos": null,
+            "chargebacks": null,
+            "whitelisted": null,
+            "ar": null,
+            "headOffice": null
+        },
+        "userAccountType": null,
+        "nationalAccountName": null,
+        "fopCodesForInternalUser": null,
+        "dropNetEnabled": false,
+        "dropNetOverride": false,
+        "dropNetPercent": 0,
+        "merchantCcFeePercent": 0,
+        "doAllFares": false,
+        "doOnSavedPQ": false,
+        "chargeFullPublished": false,
+        "storedFareIssueType": 0,
+        "noFopTicketing": false,
+        "globalCustomers": false,
+        "checkUnderQuote": false,
+        "overrideICT": false,
+        "overrideAuth": false,
+        "tripPayEnrolled": false,
+        "cctrAllowed": false,
+        "uniqueId": 0,
+        "noRemarkTicketing": false,
+        "partnerId": 19,
+        "db": "US",
+        "dkNumber10": "301C101026",
+        "secondaryPcc": null,
+        "keywords": [
+            "admin@asdfasd.com",
+            "6548528522",
+            "TripPro",
+            "C101026",
+            "TripPro US",
+            "Admin",
+            "Admin",
+            "6548528522"
+        ],
+        "ictDefault": false,
+        "interClient": null,
+        "interConsolidatorId": null,
+        "interVenId": null,
+        "emails": [
+            {
+                "email": "admin@asdfasdf.com",
+                "primary": true
+            }
+        ],
+        "phones": [
+            {
+                "countryCode": null,
+                "phone": "6548528522",
+                "primary": true
+            }
+        ],
+        "systemLoaded": true,
+        "systemLoadedTime": "2021-10-14T08:15:58.201Z",
+        "SubscriptionRequired": false,
+        "settings": {
+            "enableWallet": false
+        },
+        "payomoAccount": {
+            "accountId": "6A080765-3338-4E9C-A456-33F2A7D36B8E",
+            "clientId": "YIwkxAy9HIObmGWcwi82RAt4MXzAI20H",
+            "clientSecret": "RqRvUmYHVPIsJ4bB"
+        },
+        "payomoAccountId": "6A080765-3338-4E9C-A456-33F2A7D36B8E"
+    }
+]

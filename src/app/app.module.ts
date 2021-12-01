@@ -11,10 +11,15 @@ import {ButtonModule} from 'primeng/button';
 import {RatingModule} from 'primeng/rating';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {TabViewModule} from 'primeng/tabview';
+import { TabMenuComponent } from './tab-menu/tab-menu.component';
+import {TabMenuModule} from 'primeng/tabmenu';
+import {InputSwitchModule} from 'primeng/inputswitch';
+import {DropdownModule} from 'primeng/dropdown';
 @NgModule({
   declarations: [
     AppComponent,
-    DataGridComponent
+    DataGridComponent,
+    TabMenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +31,10 @@ import {TabViewModule} from 'primeng/tabview';
     RatingModule,
     FormsModule,
     ReactiveFormsModule,
-    TabViewModule
+    TabViewModule,
+    TabMenuModule,
+    InputSwitchModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

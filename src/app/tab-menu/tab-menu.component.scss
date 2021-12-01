@@ -1,0 +1,106 @@
+.main-block {
+    border-bottom: 2px solid #344453;
+    .tab-block {
+        button {
+            background-color: #fff;
+            border: 0px;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: -1px;
+            color: #344453;
+            text-transform: uppercase;
+            padding: 11px 30px;
+            margin-right: 2px;
+            &.active {
+                background-color: #344453;
+                color: #fff;
+            }
+        }
+        ::ng-deep .check-btn {
+            .p-inputswitch {
+                width: 40px;
+                height: 20px;
+                outline: none !important;
+            }
+            .p-inputswitch-slider {
+                box-shadow: none !important;
+            }
+            .p-inputswitch-checked {
+                .p-inputswitch-slider {
+                    background-color: #fff !important;
+                    border: 1px solid #55b94c !important;
+                    &:before {
+                        background: #55b94c !important;
+                    }
+                }
+            }
+        }
+    }
+    .refresh-icon {
+        svg{
+            fill: #ee5735 !important;
+        }
+    }
+    .list-block{
+        button {
+            background: #344453;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            &.transperant {
+                background: #fff;
+                border: 1px solid #b3b3b3;
+                svg {
+                    color: #344453;
+                }
+            }
+            svg {
+                color: #fff;
+            }
+        }
+    }
+    .fiter-block, .sort-block {
+        position: relative;
+        display: flex;
+        align-items: center;
+        select {
+            font-size: 12px;
+            padding: 10px 40px;
+            &:focus{
+                box-shadow: none;
+                outline: none;
+            }
+        }
+        svg, i {
+            position: absolute;
+            left: 10px;
+        }
+    }
+    .search-block {
+        position: relative;
+        display: flex;
+        align-items: center;
+        i {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+        }
+        input {
+            padding-left: 30px;
+        }
+    }
+    .create-btn {
+        button{
+            background-color: #EE5735;
+            color: #FFFFFF;
+            font-size: 12px;
+            padding: 10px 30px;
+            border-radius: 5px;
+            font-weight: bold;
+            em {
+                margin-right: 5px;
+            }
+        }
+    }
+}

@@ -1,6 +1,28 @@
 .data-table-block {
-    padding: 10px 20px;
+    padding: 10px 0px;
     background-color: #f7f7f7;
+    ::ng-deep .p-datatable-wrapper{
+        min-height: 500px;
+    }
+    ::ng-deep .p-datatable-table {
+        border-collapse: separate;
+        border-spacing: 0 5px;
+        .p-datatable-tbody > tr > td,
+        th {
+            font-size: 12px;
+        }
+        .p-datatable-thead > tr > th {
+            text-transform: uppercase;
+        }
+        .p-datatable-tbody {
+            .trunk-text {
+                width: 110px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
 }
 ::ng-deep li.p-highlight a {
     background: #344453 !important;

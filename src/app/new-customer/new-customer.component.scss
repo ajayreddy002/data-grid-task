@@ -1,0 +1,46 @@
+.me-5 {
+    width: 250px;
+}
+.customer-block {
+    background-color: #f8f8f8;
+    margin: 20px 10px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    border: 1px solid;
+    .orange-header {
+        font-size: 20px;
+        color: #ee5735;
+        font-weight: normal;
+        margin: 0;
+    }
+    
+}
+.new-customer-data {
+    margin-bottom: 20px;
+}
+
+.flex-direction-column {
+    display: flex;
+    flex-direction: column;
+}
+.nav-pills {
+    background: #fff;
+    padding: 20px 10px;
+    border-radius: 5px;
+    button {
+        text-align: left;
+        color: #344453;
+        font-size: 14px;
+        margin-bottom: 10px;
+        &.active {
+            background-color: #344453 !important;
+            color: #ffffff;
+            font-weight: 500;
+        }
+    }
+}
+// .tab-content {
+//     background: #fff;
+//     padding: 20px;
+//     border-radius: 5px;
+//     padding-bottom: 50px;
+// }
