@@ -62,16 +62,15 @@ export class TabMenuComponent implements OnInit {
       )
   }
   getCustomerByCompanyName(event: any) {
-    if (event && event.target.value.length > 3) {
-      this.baseAPIServices.getDataByCompanyName(event.target.value)
-        .subscribe(
-          (data: any) => {
-            console.log(data);
-          }, err => {
-            console.log(err);
-          }
-        )
-    }
+    this.baseAPIServices.getDataByCompanyName(event.target.value)
+      .subscribe(
+        (data: any) => {
+          console.log(data);
+          this.allCustomerData = data;
+        }, err => {
+          console.log(err);
+        }
+      )
   }
 
 }

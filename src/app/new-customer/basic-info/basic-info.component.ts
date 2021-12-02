@@ -86,12 +86,128 @@ export class BasicInfoComponent implements OnInit {
       whitelisted: [''],
       systemLoaded: [''],
       systemLoadedTime: [''],
-      currentBalance: ['']
+      currentBalance: [''],
+      companyName: ['Test']
     });
   }
 
   createNewContact() {
-    this.baseAPIService.postMethod(this.customerForm.value, 'customer/save-customer')
+    const payLoad = {
+      "SubscriptionRequired": true,
+      "accountManager": "string",
+      "address": "string",
+      "arc": this.customerForm.get('arc')?.value,
+      "branchCode": "string",
+      "branchName": "string",
+      "businessFocus": "string",
+      "cctrAllowed": true,
+      "chargeFullPublished": true,
+      "checkUnderQuote": true,
+      "clientCode": this.customerForm.get('clientCode')?.value,
+      "companyName": "string",
+      "companyOwner": "string",
+      "consolidatorId": parseInt(this.customerForm.get('consolidatorId')?.value),
+      "contacts": [
+        {
+          "mobileNumber": 0
+        }
+      ],
+      "createdString": "string",
+      "creditLimit": this.customerForm.get('creditLimit')?.value,
+      "currency": "string",
+      "customerId": "string",
+      "customerType": "string",
+      "db": "string",
+      "distribution": this.customerForm.get('distribution')?.value,
+      "dkNumber": this.customerForm.get('dkNumber')?.value,
+      "dkNumber10": this.customerForm.get('dkNumber')?.value,
+      "doAllFares": true,
+      "doOnSavedPQ": true,
+      "dropNetEnabled": true,
+      "dropNetOverride": true,
+      "dropNetPercent": 0,
+      "email": "string",
+      "emailConfig": {
+        "ar": "string",
+        "chargebacks": "string",
+        "debitMemos": "string",
+        "documentDelivery": "string",
+        "headOffice": "string",
+        "refunds": "string",
+        "scheduleChanges": "string",
+        "statements": "string",
+        "whitelisted": this.customerForm.get('whitelisted')?.value,
+      },
+      "emails": [
+        {
+          "email": "string",
+          "primary": true
+        }
+      ],
+      "fopCodes": JSON.stringify(this.customerForm.get('fopCodes')?.value),
+      "fopCodesForInternalUser": "string",
+      "formatPhone": "string",
+      "gds": this.customerForm.get('gds')?.value,
+      "globalCustomers": true,
+      "ictDefault": true,
+      "id": "string",
+      "interClient": "string",
+      "interConsolidatorId": "string",
+      "interVenId": "string",
+      "keywords": [
+        "string"
+      ],
+      "lastModified": "string",
+      "markets": this.customerForm.get('markets')?.value,
+      "merchantCcFeePercent": 0,
+      "nationalAccountName": "string",
+      "noFopTicketing": true,
+      "noRemarkTicketing": true,
+      "overrideAuth": true,
+      "overrideICT": true,
+      "parentId": "string",
+      "partnerId": 0,
+      "payomoAccount": {
+        "accountId": "string",
+        "clientId": "string",
+        "clientSecret": "string"
+      },
+      "payomoAccountId": "string",
+      "pccConfig": {
+        "amadeus": "string",
+        "apollo": "string",
+        "galileo": "string",
+        "sabre": "string",
+        "worldspan": "string"
+      },
+      "phone": "string",
+      "phones": [
+        {
+          "countryCode": "string",
+          "phone": "string",
+          "primary": true
+        }
+      ],
+      "platform": this.customerForm.get('platform')?.value,
+      "pos": "string",
+      "regdCompanyName": "string",
+      "secondaryPcc": "string",
+      "serviceManager": "string",
+      "settings": {
+        "enableWallet": true
+      },
+      "size": "string",
+      "storedFareIssueType": 0,
+      "subscription": "string",
+      "systemLoaded": true,
+      "systemLoadedTime": "string",
+      "taxId": "string",
+      "travelLicense": "string",
+      "tripPayEnrolled": true,
+      "uniqueId": 0,
+      "userAccountType": "string"
+    }
+    this.baseAPIService.postMethod(payLoad, 'customer/save-customer')
       .subscribe(
         data => {
           console.log(data);
