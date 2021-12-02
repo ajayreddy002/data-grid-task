@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { IDropdownOptions } from 'src/app/models/form-helper';
 import { BaseAPIServices } from 'src/app/_services/base-api-services';
 
@@ -64,7 +65,8 @@ export class BasicInfoComponent implements OnInit {
   customerForm!: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
-    private baseAPIService: BaseAPIServices
+    private baseAPIService: BaseAPIServices,
+    private router: Router
   ) {
 
   }
@@ -93,6 +95,7 @@ export class BasicInfoComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
+          this.router.navigate(['/'])
         }, err => {
           console.log(err);
         }

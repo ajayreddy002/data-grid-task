@@ -1,5 +1,5 @@
 <div class="data-table-block">
-    <p-table [columns]="columns" [value]="allCustomerData" dataKey="name" responsiveLayout="scroll">
+    <p-table [columns]="columns" [value]="allCustomerData" dataKey="name" responsiveLayout="scroll" [rows]="10" [paginator]="true">
         <ng-template pTemplate="header">
             <tr>
                 <th style="width: 3rem">
