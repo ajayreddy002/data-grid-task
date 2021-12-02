@@ -15,4 +15,7 @@ export class BaseAPIServices {
     getDataByCompanyName(companyName: string){
         return this.httpClient.post(`${environment.baseUrl}/customer/customer-by-companyname?companyName=${companyName}`, {})
     }
+    postMethod(formData: any, endPoint: string){
+        return this.httpClient.post(`${environment.baseUrl}/${endPoint}`, formData);
+    }
 }

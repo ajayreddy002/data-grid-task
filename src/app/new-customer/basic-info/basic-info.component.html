@@ -9,63 +9,63 @@
         </div>
         <div class="btn-block d-flex">
             <div>
-                <button class="save-btn">Save & Continue</button>
+                <button class="save-btn" (click)="createNewContact()">Save & Continue</button>
             </div>
             <div>
-                <button class="cancel">Cancel</button>
+                <button class="cancel" routerLink="/">Cancel</button>
             </div>
         </div>
     </div>
     <div class="form-block shadow">
-        <form action="">
+        <form action="" [formGroup]="customerForm">
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="arc" class="form-label">ARC</label>
-                        <p-dropdown inputId="arc" [options]="arcArr" name="arc" [(ngModel)]="selectedARC"
-                            placeholder="Select" optionLabel="name"></p-dropdown>
+                        <p-dropdown inputId="arc" [options]="arcArr" name="arc"
+                            placeholder="Select" optionLabel="name" formControlName="arc" optionValue="name"></p-dropdown>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group p-field">
                         <label for="arc" class="form-label">Foc Codes</label>
-                        <p-multiSelect [options]="fopCodes" name="selectedFopCodes" [(ngModel)]="selectedFopCodes"
-                            optionLabel="name"></p-multiSelect>
+                        <p-multiSelect [options]="fopCodes" name="selectedFopCodes"
+                            optionLabel="name" formControlName="fopCodes" optionValue="name"></p-multiSelect>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group ">
-                        <label for="arc" class="form-label">Client Code</label>
-                        <p-dropdown inputId="arc" [options]="arcArr" name="arc" [(ngModel)]="selectedARC"
-                            placeholder="Select" optionLabel="name"></p-dropdown>
+                        <label for="clientCode" class="form-label">Client Code</label>
+                        <p-dropdown inputId="clientCode" [options]="clientCodes" name="clientCode"
+                            placeholder="Select" optionLabel="name" formControlName="clientCode" optionValue="name"></p-dropdown>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group ">
                         <label for="GDS" class="form-label">GDS</label>
-                        <p-dropdown inputId="GDS" [options]="arcArr" name="GDS" [(ngModel)]="selectedARC"
-                            placeholder="Select" optionLabel="name"></p-dropdown>
+                        <p-dropdown inputId="GDS" [options]="gdsCodes" name="GDS"
+                            placeholder="Select" optionLabel="name" formControlName="gds" optionValue="name"></p-dropdown>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group ">
                         <label for="markets" class="form-label">Markets</label>
-                        <p-dropdown inputId="markets" [options]="arcArr" name="markets" [(ngModel)]="selectedARC"
-                            placeholder="Select" optionLabel="name"></p-dropdown>
+                        <p-dropdown inputId="markets" [options]="markets" name="markets"
+                            placeholder="Select" optionLabel="name" formControlName="markets" optionValue="name"></p-dropdown>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="form-group ">
+                    <div class="form-group">
                         <label for="consolidatorId" class="form-label">Consolidator ID</label>
-                        <p-dropdown inputId="consolidatorId" [options]="arcArr" name="consolidatorId"
-                            [(ngModel)]="selectedARC" placeholder="Select" optionLabel="name"></p-dropdown>
+                        <p-dropdown inputId="consolidatorId" [options]="consolidatorArr" name="consolidatorId"
+                        formControlName="consolidatorId" placeholder="Select" optionLabel="name" optionValue="name"></p-dropdown>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <label for="creditLimit" class="form-label">Credit Limit</label>
                     <div class="input-group">
                         <span class="input-group-text">$</span>
-                        <input type="text" name="creditLimit" class="form-control py-2" aria-label="Amount (to the nearest dollar)">
+                        <input type="text" name="creditLimit" formControlName="creditLimit" class="form-control py-2" aria-label="Amount (to the nearest dollar)">
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -73,48 +73,48 @@
                     <div class="p-inputgroup">
                         <div class="input-group">
                             <span class="input-group-text">$</span>
-                            <input type="text" name="currentBalance" class="form-control py-2" aria-label="Amount (to the nearest dollar)">
+                            <input type="text" name="currentBalance" formControlName="currentBalance" class="form-control py-2" aria-label="Amount (to the nearest dollar)">
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="form-group ">
-                        <label for="arc" class="form-label">DK number</label>
-                        <p-dropdown inputId="arc" [options]="arcArr" name="arc" [(ngModel)]="selectedARC"
-                            placeholder="Select" optionLabel="name"></p-dropdown>
+                    <div class="form-group">
+                        <label for="dkNumber" class="form-label">DK number</label>
+                        <p-dropdown inputId="dkNumber" [options]="dkNumArr" name="dkNumber"
+                            placeholder="Select" formControlName="dkNumber" optionLabel="name" optionValue="name"></p-dropdown>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="form-group ">
-                        <label for="arc" class="form-label">Platform</label>
-                        <p-dropdown inputId="arc" [options]="arcArr" name="arc" [(ngModel)]="selectedARC"
-                            placeholder="Select" optionLabel="name"></p-dropdown>
+                    <div class="form-group">
+                        <label for="platform" class="form-label">Platform</label>
+                        <p-dropdown inputId="platform" [options]="platformArr" name="platform" formControlName="platform"
+                            placeholder="Select" optionLabel="name" optionValue="name"></p-dropdown>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="form-group ">
-                        <label for="arc" class="form-label">Distribution</label>
-                        <p-dropdown inputId="arc" [options]="arcArr" name="arc" [(ngModel)]="selectedARC"
-                            placeholder="Select" optionLabel="name"></p-dropdown>
+                    <div class="form-group">
+                        <label for="distribution" class="form-label">Distribution</label>
+                        <p-dropdown inputId="distribution" [options]="distributionArr" name="distribution" formControlName="distribution"
+                            placeholder="Select" optionLabel="name" optionValue="name"></p-dropdown>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="form-group ">
-                        <label for="arc" class="form-label">White listing</label>
-                        <p-dropdown inputId="arc" [options]="arcArr" name="arc" [(ngModel)]="selectedARC"
-                            placeholder="Select" optionLabel="name"></p-dropdown>
+                    <div class="form-group">
+                        <label for="whitelisted" class="form-label">White listing</label>
+                        <p-dropdown inputId="whitelisted" [options]="whiteListArr" name="whitelisted" formControlName="whitelisted"
+                            placeholder="Select" optionLabel="name" optionValue="name"></p-dropdown>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="form-group ">
+                    <div class="form-group">
                         <label for="systemLoaded" class="form-label">System Loaded</label>
-                        <input type="text" name="systemLoaded" id="systemLoaded" class="form-control">
+                        <input type="text" name="systemLoaded" id="systemLoaded" formControlName="systemLoaded" class="form-control">
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="form-group ">
+                    <div class="form-group">
                         <label for="systemLoadedTime" class="form-label">System Loaded Time</label>
-                        <input type="text" name="systemLoadedTime" id="systemLoadedTime" class="form-control">
+                        <input type="text" name="systemLoadedTime" formControlName="systemLoadedTime" id="systemLoadedTime" class="form-control">
                     </div>
                 </div>
             </div>
