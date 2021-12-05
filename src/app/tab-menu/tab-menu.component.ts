@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { BaseAPIServices } from 'src/app/_services/base-api-services';
 import { IAllCustomerModel, IAllHeaderColums } from '../models/table-model';
 
@@ -18,8 +19,8 @@ export class TabMenuComponent implements OnInit {
   allCustomerColumns: IAllHeaderColums[] = [];
   allCustomerData: IAllCustomerModel[] = [];
   constructor(
-    private httpClient: HttpClient,
-    private baseAPIServices: BaseAPIServices
+    private baseAPIServices: BaseAPIServices,
+    private ngxSpinner: NgxSpinnerService
   ) { }
 
   ngOnInit(): void {
@@ -51,26 +52,77 @@ export class TabMenuComponent implements OnInit {
     this.getAllCustomersData();
   }
   getAllCustomersData() {
+    this.ngxSpinner.show();
     this.baseAPIServices.getMethod('customer/all-customers')
       .subscribe(
         (data: any) => {
-          console.log(data);
-          this.allCustomerData = data;
+          this.ngxSpinner.hide();
+          this.prepareSubRow(data);
+          // this.allCustomerData = data;
         }, (err: any) => {
+          this.ngxSpinner.hide();
           console.log(err);
         }
       )
   }
   getCustomerByCompanyName(event: any) {
+    this.ngxSpinner.show();
     this.baseAPIServices.getDataByCompanyName(event.target.value)
       .subscribe(
         (data: any) => {
           console.log(data);
+          this.ngxSpinner.hide();
           this.allCustomerData = data;
         }, err => {
           console.log(err);
+          this.ngxSpinner.hide();
         }
       )
+  }
+  prepareSubRow(customerData: any) {
+    if (customerData && customerData.length > 0) {
+      let subColumns:any = [];
+      // preparing subcolumns to show the data on expansion.
+      customerData.map((item: IAllCustomerModel) => {
+        subColumns = [
+          {
+            field: 'arc', header: 'ARC'
+          },
+          {
+            field: 'branchCode', header: 'Branch Code'
+          },
+          {
+            field: 'branchName', header: 'Branch Name'
+          },
+          {
+            field: 'fobCodes', header: 'FOB Codes'
+          },
+          {
+            field: 'businessFocus', header: 'Business Focus'
+          },
+          {
+            field: 'clientCode', header: 'Client Code'
+          },
+          {
+            field: 'consolidatorId', header: 'Consolidator ID'
+          },
+          {
+            field: 'gds', header: 'GDS'
+          },
+          {
+            field: 'markets', header: 'Markets'
+          },
+          {
+            field: 'creditLimit', header: 'Credit Limit'
+          },
+          {
+            field: 'currentBalance', header: 'Current Balance'
+          },
+        ];
+        item.subColumns = subColumns
+      });
+      this.allCustomerData = customerData
+    }
   }
 
 }

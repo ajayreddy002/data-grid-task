@@ -8,6 +8,7 @@ export interface IAllCustomerModel {
     email: string;
     phone: string;
     accountManager: string;
+    subColumns: Array<IAllHeaderColums>;
 }
 export interface IAllHeaderColums {
     header:string;

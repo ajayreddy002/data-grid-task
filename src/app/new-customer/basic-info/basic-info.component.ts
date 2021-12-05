@@ -3,7 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IDropdownOptions } from 'src/app/models/form-helper';
 import { BaseAPIServices } from 'src/app/_services/base-api-services';
-
+import { NgxSpinnerService } from "ngx-spinner";
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-basic-info',
   templateUrl: './basic-info.component.html',
@@ -66,7 +67,9 @@ export class BasicInfoComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private baseAPIService: BaseAPIServices,
-    private router: Router
+    private router: Router,
+    private ngxSpinner: NgxSpinnerService,
+    private toastr: ToastrService
   ) {
 
   }
@@ -207,13 +210,17 @@ export class BasicInfoComponent implements OnInit {
       "uniqueId": 0,
       "userAccountType": "string"
     }
+    this.ngxSpinner.show();
     this.baseAPIService.postMethod(payLoad, 'customer/save-customer')
       .subscribe(
         data => {
           console.log(data);
-          this.router.navigate(['/'])
+          this.toastr.success('New company created', 'Success');
+          this.router.navigate(['/']);
+          this.ngxSpinner.hide();
         }, err => {
           console.log(err);
+          this.ngxSpinner.hide();
         }
       )
   }

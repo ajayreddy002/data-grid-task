@@ -7,7 +7,8 @@ import { BasicInfoComponent } from './basic-info/basic-info.component';
 import {MultiSelectModule} from 'primeng/multiselect';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
-
+import { NgxSpinnerModule } from "ngx-spinner";
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     NewCustomerComponent,
@@ -19,7 +20,9 @@ import { DropdownModule } from 'primeng/dropdown';
     MultiSelectModule,
     FormsModule,
     ReactiveFormsModule,
-    DropdownModule
+    DropdownModule,
+    NgxSpinnerModule,
+    ToastrModule
   ]
 })
 export class NewCustomerModule { }

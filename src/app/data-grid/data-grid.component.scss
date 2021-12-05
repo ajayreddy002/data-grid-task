@@ -1,7 +1,7 @@
 .data-table-block {
     padding: 10px 0px;
     background-color: #f7f7f7;
-    ::ng-deep .p-datatable-wrapper{
+    ::ng-deep .p-datatable-wrapper {
         min-height: 500px;
     }
     ::ng-deep .p-datatable-table {
@@ -13,6 +13,18 @@
         }
         .p-datatable-thead > tr > th {
             text-transform: uppercase;
+        }
+        .p-datatable-tbody {
+            .expand-tr{
+                border-radius: 4px;
+                background-color: #f8f8ff !important; 
+                padding: 20px 5px;
+            }
+            .expand-td {
+                border-radius: 4px;
+                background-color: #f8f8ff;
+                padding: 20px 5px;
+            }
         }
         .p-datatable-tbody {
             .trunk-text {
@@ -34,4 +46,16 @@
 }
 ::ng-deep .data-table-block .p-tabview-panels {
     padding: 0 !important;
+}
+.expansion-block {
+    .ex-row {
+        width: 300px;
+        padding-left: 60px;
+        font-size: 14px;
+        padding-bottom: 10px;
+        padding-right: 30px;
+        &:last-child{
+            padding-bottom: 0;
+        }
+    }
 }

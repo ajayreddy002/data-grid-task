@@ -16,6 +16,8 @@ import {TabMenuModule} from 'primeng/tabmenu';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import {DropdownModule} from 'primeng/dropdown';
 import { BaseAPIServices } from 'src/app/_services/base-api-services';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +37,9 @@ import { BaseAPIServices } from 'src/app/_services/base-api-services';
     TabViewModule,
     TabMenuModule,
     InputSwitchModule,
-    DropdownModule
+    DropdownModule,
+    NgxSpinnerModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     BaseAPIServices

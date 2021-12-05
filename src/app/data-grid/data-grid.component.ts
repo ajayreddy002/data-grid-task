@@ -8,11 +8,13 @@ import { IAllCustomerModel, IAllHeaderColums } from '../models/table-model';
 export class DataGridComponent implements OnInit {
   @Input() products:any[] = [];
   @Input()columns: IAllHeaderColums[] = [];
-  @Input()allCustomerData: IAllCustomerModel[] = [];
+  @Input()allCustomerData = [] as IAllCustomerModel[];
+  selectedRow:any;
   constructor(
   ) { }
 
   ngOnInit(): void {
+    console.log(this.allCustomerData)
   }
 
 }

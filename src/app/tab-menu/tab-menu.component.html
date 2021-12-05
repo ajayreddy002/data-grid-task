@@ -18,7 +18,7 @@
             </div>
             <div class="col-md-7">
                 <div class="d-flex align-items-center justify-content-between">
-                    <button class="refresh-icon">
+                    <button class="refresh-icon" (click)="getAllCustomersData()" title="Click to get all customers">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" fill="currentColor"
                             class="bi bi-arrow-repeat" viewBox="0 0 16 16">
                             <path
@@ -81,7 +81,7 @@
     </div>
     <div class="content-block">
         <div class="table-block">
-            <ng-container *ngIf="showAllTable">
+            <ng-container *ngIf="showAllTable && allCustomerData && allCustomerData.length > 0">
                 <app-data-grid [columns]="allCustomerColumns" [allCustomerData]="allCustomerData"></app-data-grid>
             </ng-container>
         </div>
