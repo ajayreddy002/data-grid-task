@@ -18,4 +18,7 @@ export class BaseAPIServices {
     postMethod(formData: any, endPoint: string){
         return this.httpClient.post(`${environment.baseUrl}/${endPoint}`, formData);
     }
+    deleteCustomer(id: any, endPoint: string){
+        return this.httpClient.post(`${environment.baseUrl}/${endPoint}`, {customerID: id})
+    }
 }

@@ -37,7 +37,7 @@
                         <button class="btn btn-light rounded-circle d-flex align-items-center">
                             <i class="bi bi-pencil-square"></i>
                         </button>
-                        <button type="button" class="btn btn-light rounded-circle d-flex align-items-center">
+                        <button (click)="deleteCustomer(rowData?.id)" type="button" class="btn btn-light rounded-circle d-flex align-items-center">
                             <i class="bi bi-trash"></i>
                         </button>
                         <button type="button" pButton pRipple [pRowToggler]="rowData"
