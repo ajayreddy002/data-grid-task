@@ -1,24 +1,27 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { IAllCustomerModel, IAllHeaderColums } from '../models/table-model';
-import { BaseAPIServices } from '../_services/base-api-services';
 @Component({
   selector: 'app-data-grid',
   templateUrl: './data-grid.component.html',
   styleUrls: ['./data-grid.component.scss']
 })
 export class DataGridComponent implements OnInit {
-  @Input() products: any[] = [];
   @Input() columns: IAllHeaderColums[] = [];
   @Input() allCustomerData = [] as IAllCustomerModel[];
+  @Input() totalRecords = 0;
+  @Output() paginationEvent: any = new EventEmitter();
+  page: number = 1;
+  size = 6;
   selectedRow: any;
   constructor(
-    private apiService: BaseAPIServices
   ) { }
 
   ngOnInit(): void {
-    console.log(this.allCustomerData)
   }
   deleteCustomer(id: any) {
-    
+
+  }
+  paginate(event: any) {
+    this.paginationEvent.emit({ page: event.page, size: event.rows });
   }
 }

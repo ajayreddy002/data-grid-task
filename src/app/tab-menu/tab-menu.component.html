@@ -82,7 +82,7 @@
     <div class="content-block">
         <div class="table-block">
             <ng-container *ngIf="showAllTable && allCustomerData && allCustomerData.length > 0">
-                <app-data-grid [columns]="allCustomerColumns" [allCustomerData]="allCustomerData"></app-data-grid>
+                <app-data-grid [columns]="allCustomerColumns" [allCustomerData]="allCustomerData" [totalRecords]="totalRecords" (paginationEvent)="getAllCustomersDataPaginate($event)"></app-data-grid>
             </ng-container>
         </div>
     </div>

@@ -18,6 +18,7 @@ export class TabMenuComponent implements OnInit {
   showAllTable = true;
   allCustomerColumns: IAllHeaderColums[] = [];
   allCustomerData: IAllCustomerModel[] = [];
+  totalRecords = 0;
   constructor(
     private baseAPIServices: BaseAPIServices,
     private ngxSpinner: NgxSpinnerService
@@ -49,7 +50,7 @@ export class TabMenuComponent implements OnInit {
       { header: 'phone', field: 'phone' },
       { header: 'accountManager', field: 'accountManager' },
     ];
-    this.getAllCustomersData();
+    this.getAllCustomersDataPaginate({ page: 0, size: 10 })
   }
   getAllCustomersData() {
     this.ngxSpinner.show();
@@ -58,7 +59,6 @@ export class TabMenuComponent implements OnInit {
         (data: any) => {
           this.ngxSpinner.hide();
           this.prepareSubRow(data);
-          // this.allCustomerData = data;
         }, (err: any) => {
           this.ngxSpinner.hide();
           console.log(err);
@@ -70,7 +70,6 @@ export class TabMenuComponent implements OnInit {
     this.baseAPIServices.getDataByCompanyName(event.target.value)
       .subscribe(
         (data: any) => {
-          console.log(data);
           this.ngxSpinner.hide();
           this.allCustomerData = data;
         }, err => {
@@ -79,9 +78,25 @@ export class TabMenuComponent implements OnInit {
         }
       )
   }
+  getAllCustomersDataPaginate(event: any) {
+    this.ngxSpinner.show();
+    this.baseAPIServices.getCustomerByPagniate(event.page, event.size, 'customer/all-customers-pagination')
+      .subscribe(
+        (data: any) => {
+          if (data && data.customers && data.customers.length > 0) {
+            this.totalRecords = data.totalItems;
+            this.prepareSubRow(data.customers);
+          }
+          this.ngxSpinner.hide();
+        }, err => {
+          this.ngxSpinner.hide();
+          console.log(err);
+        }
+      )
+  }
   prepareSubRow(customerData: any) {
     if (customerData && customerData.length > 0) {
-      let subColumns:any = [];
+      let subColumns: any = [];
       // preparing subcolumns to show the data on expansion.
       customerData.map((item: IAllCustomerModel) => {
         subColumns = [
@@ -119,7 +134,7 @@ export class TabMenuComponent implements OnInit {
             field: 'currentBalance', header: 'Current Balance'
           },
         ];
-        item.subColumns = subColumns
+        item.subColumns = subColumns;
       });
       this.allCustomerData = customerData
     }

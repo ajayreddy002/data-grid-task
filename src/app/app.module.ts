@@ -18,6 +18,8 @@ import {DropdownModule} from 'primeng/dropdown';
 import { BaseAPIServices } from 'src/app/_services/base-api-services';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
+import {NgxPaginationModule} from 'ngx-pagination';
+import {PaginatorModule} from 'primeng/paginator';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +41,9 @@ import { ToastrModule } from 'ngx-toastr';
     InputSwitchModule,
     DropdownModule,
     NgxSpinnerModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgxPaginationModule,
+    PaginatorModule
   ],
   providers: [
     BaseAPIServices
