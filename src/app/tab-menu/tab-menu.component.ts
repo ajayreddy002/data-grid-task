@@ -139,5 +139,15 @@ export class TabMenuComponent implements OnInit {
       this.allCustomerData = customerData
     }
   }
-
+  deleteCustomer(event: any) {
+    this.baseAPIServices.deleteCustomer(event, 'customer/delete-customer')
+      .subscribe(
+        data => {
+          console.log(data);
+          this.getAllCustomersDataPaginate({ page: 0, size: 10 })
+        }, err => {
+          console.log(err);
+        }
+      )
+  }
 }

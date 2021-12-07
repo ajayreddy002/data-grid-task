@@ -19,7 +19,7 @@ export class BaseAPIServices {
         return this.httpClient.post(`${environment.baseUrl}/${endPoint}`, formData);
     }
     deleteCustomer(id: any, endPoint: string){
-        return this.httpClient.post(`${environment.baseUrl}/${endPoint}`, {customerID: id})
+        return this.httpClient.post(`${environment.baseUrl}/${endPoint}?customerID=${id}`, {customerID: id})
     }
     getCustomerByPagniate(page: number,size:number, endPoint: string){
         return this.httpClient.get(`${environment.baseUrl}/${endPoint}?page=${page}&size=${size}`)

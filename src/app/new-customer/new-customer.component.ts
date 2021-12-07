@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-new-customer',
@@ -6,12 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-customer.component.scss']
 })
 export class NewCustomerComponent implements OnInit {
+  customerData:any;
+  constructor(
+    private activatedRoute: ActivatedRoute
+  ) {
 
-constructor() {
+  }
 
-}
-
-ngOnInit(): void {
-}
+  ngOnInit(): void {
+    this.activatedRoute.params.subscribe(params => {
+      if(params && params['data']){
+        this.customerData = JSON.parse(params['data']);
+      }
+    }
+    );
+    console.log(this.activatedRoute.data)
+  }
 
 }

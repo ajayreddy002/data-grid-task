@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IDropdownOptions } from 'src/app/models/form-helper';
@@ -11,7 +11,7 @@ import { arcData, clientCodeData, consolidatorData, distributionData, dkNumberDa
   templateUrl: './basic-info.component.html',
   styleUrls: ['./basic-info.component.scss']
 })
-export class BasicInfoComponent implements OnInit {
+export class BasicInfoComponent implements OnInit, OnChanges {
   arcArr: IDropdownOptions[] = arcData;
   selectedARC!: string;
   selectedFopCodes!: IDropdownOptions[];
@@ -25,6 +25,7 @@ export class BasicInfoComponent implements OnInit {
   distributionArr: IDropdownOptions[] = distributionData;
   whiteListArr: IDropdownOptions[] = whiteListData;
   customerForm!: FormGroup;
+  @Input() customerData: any;
   constructor(
     private formBuilder: FormBuilder,
     private baseAPIService: BaseAPIServices,
@@ -32,10 +33,6 @@ export class BasicInfoComponent implements OnInit {
     private ngxSpinner: NgxSpinnerService,
     private toastr: ToastrService
   ) {
-
-  }
-
-  ngOnInit(): void {
     this.customerForm = this.formBuilder.group({
       arc: [''],
       fopCodes: [''],
@@ -54,7 +51,16 @@ export class BasicInfoComponent implements OnInit {
       companyName: ['Test']
     });
   }
-
+  
+  ngOnInit(): void {
+    
+  }
+  ngOnChanges(){
+    if(this.customerData){
+      this.customerForm.patchValue(this.customerData);
+      this.customerForm.get('fopCodes')?.setValue(JSON.parse(this.customerData['fopCodes']))
+    }
+  }
   createNewContact() {
     // 
     const payLoad = payLoadData;
@@ -85,9 +91,6 @@ export class BasicInfoComponent implements OnInit {
           this.ngxSpinner.hide();
         }
       )
-  }
-  setValue(event: any) {
-    console.log(event)
   }
 
 }

@@ -34,7 +34,7 @@
                 </ng-container>
                 <td>
                     <div class="d-flex justify-content-between">
-                        <button class="btn btn-light rounded-circle d-flex align-items-center">
+                        <button class="btn btn-light rounded-circle d-flex align-items-center" [routerLink]="['/new-customer', {data: rowData | json}]">
                             <i class="bi bi-pencil-square"></i>
                         </button>
                         <button (click)="deleteCustomer(rowData?.id)" type="button"
