@@ -48,7 +48,8 @@ export class BasicInfoComponent implements OnInit, OnChanges {
       systemLoaded: [''],
       systemLoadedTime: [''],
       currentBalance: [''],
-      companyName: ['Test']
+      companyName: ['Test'],
+      id: [null]
     });
   }
   
@@ -76,7 +77,8 @@ export class BasicInfoComponent implements OnInit, OnChanges {
     payLoadData.gds = this.customerForm.get('gds')?.value
     payLoadData.platform = this.customerForm.get('platform')?.value
     payLoadData.emailConfig.whitelisted = this.customerForm.get('whitelisted')?.value
-    payLoadData.systemLoaded = this.customerForm.get('systemLoaded')?.value
+    payLoadData.systemLoaded = this.customerForm.get('systemLoaded')?.value;
+    payLoadData.id = this.customerForm.get('id')?.value ? this.customerForm.get('id')?.value : null;
     payLoadData.companyName = 'Test';
     this.ngxSpinner.show();
     this.baseAPIService.postMethod(payLoad, 'customer/save-customer')
